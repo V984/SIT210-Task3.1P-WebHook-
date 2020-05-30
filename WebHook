@@ -1,16 +1,25 @@
-int led = D7;  // The on-board LED
+int led1 = D6; // Instead of writing D0 over and over again, we'll write led1
+// You'll need to wire an LED to this one to see it blink.
+
+int led2 = D7; // Instead of writing D7 over and over again, we'll write led2
 
 void setup() {
-  pinMode(led, OUTPUT);
+	pinMode(led1, OUTPUT);
+	pinMode(led2, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(led, HIGH);   // Turn ON the LED
+	// To blink the LED, first we'll turn it on...
+	digitalWrite(led1, HIGH);
+	digitalWrite(led2, HIGH);
 
-  String temp = String(random(60, 80));
-  Particle.publish("temp", temp, PUBLIC);
-  delay(30000);               // Wait for 30 seconds
+	// We'll leave it on for 1 second...
+	delay(1000);
 
-  digitalWrite(led, LOW);    // Turn OFF the LED
-  delay(30000);               // Wait for 30 seconds
+	// Then we'll turn it off...
+	digitalWrite(led1, LOW);
+	digitalWrite(led2, LOW);
+  
+	// Wait 1 second...
+	delay(1000);
 }
