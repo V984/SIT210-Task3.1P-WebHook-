@@ -19,9 +19,6 @@ void loop() {
 
     digitalWrite(led1, LOW);
     digitalWrite(led2, LOW);
-    
-  String data = String(20);
-  // Trigger the integration
   Particle.publish("Light", data, PUBLIC);
 
     delay(30000);
